@@ -5,9 +5,9 @@ Projeto simples desenvolvido no NetBeans utilizando a linguagem Java fazendo int
 As operações exemplificadas nesse projeto são as de: inserção, leitura, alteração e remoção (CRUD) de contatos no banco de dados MySQL.
 
 * Downloads: https://github.com/iagocolodetti/JavaDBExemplo/releases
-   * [Arquivo de Script MySQL](https://github.com/iagocolodetti/JavaDBExemplo/releases/download/v1.0/contatodb.sql "contatodb.sql")
-   * [Driver Necessário](https://github.com/iagocolodetti/JavaDBExemplo/releases/download/v1.0/mysql-connector-java-5.1.23-bin.jar "mysql-connector-java-5.1.23-bin.jar")
-   * [Código-Fonte](https://github.com/iagocolodetti/JavaDBExemplo/archive/v1.0.zip "v1.0.zip")
+   * [Arquivo de Script MySQL](https://github.com/iagocolodetti/JavaDBExemplo/releases/download/v1.1/contatodb.sql "contatodb.sql")
+   * [Driver Necessário](https://github.com/iagocolodetti/JavaDBExemplo/releases/download/v1.1/mysql-connector-java-5.1.23-bin.jar "mysql-connector-java-5.1.23-bin.jar")
+   * [Código-Fonte](https://github.com/iagocolodetti/JavaDBExemplo/archive/v1.1.zip "v1.1.zip")
 <br/>
 <h3>Conectando o Banco de Dados MySQL no NetBeans</h3>
 

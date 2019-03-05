@@ -186,10 +186,6 @@ public class ContatoDAO {
     // <editor-fold defaultstate="collapsed" desc="Comando(s) de Atualização/Alteração (UPDATE)">
     public void update(Contato contato) throws ContatoNaoExisteException, SQLException {
 
-        if (!contatoExiste(contato.getId())) {
-            throw new ContatoNaoExisteException("Não existe contato com esse ID.");
-        }
-
         PreparedStatement ps = null;
 
         try {
@@ -199,7 +195,7 @@ public class ContatoDAO {
             ps.setString(3, contato.getEmail());
             ps.setInt(4, contato.getId());
 
-            ps.executeUpdate();
+            if (ps.executeUpdate() == 0) throw new ContatoNaoExisteException("Não existe contato com esse ID.");
         } catch (SQLException e) {
             throw new SQLException("Não foi possível alterar/atualizar o contato.");
         } finally {
@@ -211,17 +207,13 @@ public class ContatoDAO {
     // <editor-fold defaultstate="collapsed" desc="Comando(s) de Exclusão/Remoção (DELETE)">
     public void delete(int id) throws ContatoNaoExisteException, SQLException {
 
-        if (!contatoExiste(id)) {
-            throw new ContatoNaoExisteException();
-        }
-
         PreparedStatement ps = null;
 
         try {
             ps = con.prepareStatement("DELETE FROM contato WHERE id = ?");
             ps.setInt(1, id);
 
-            ps.executeUpdate();
+            if (ps.executeUpdate() == 0) throw new ContatoNaoExisteException();
         } catch (SQLException e) {
             throw new SQLException("Não foi possível excluir/remover o contato.");
         } finally {
@@ -229,31 +221,6 @@ public class ContatoDAO {
         }
     }
     // </editor-fold>
-
-    private boolean contatoExiste(int contato_id) {
-
-        PreparedStatement ps = null;
-        ResultSet rs = null;
-
-        boolean existe = false;
-
-        try {
-            ps = con.prepareStatement("SELECT id FROM contato WHERE id = ?");
-            ps.setInt(1, contato_id);
-
-            rs = ps.executeQuery();
-
-            if (rs.next()) {
-                existe = true;
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } finally {
-            ConnectionFactory.closeConnection(ps, rs);
-        }
-
-        return existe;
-    }
 
     public void close() {
         ConnectionFactory.closeConnection(con);
