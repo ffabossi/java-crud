@@ -11,16 +11,16 @@ import java.sql.SQLException;
  */
 public class ConnectionFactory {
 
-    private static final String DRIVER = "com.mysql.jdbc.Driver";
+    private final String DRIVER = "com.mysql.jdbc.Driver";
     
     // URL de acesso ao banco de dados.
-    private static final String URL = "jdbc:mysql://localhost:3306/contatodb";
+    private final String URL = "jdbc:mysql://localhost:3306/contatodb";
     // Nome de usuário para acesso ao banco de dados.
-    private static final String USER = "root";
+    private final String USER = "root";
     // Senha de usuário para acesso ao banco de dados.
-    private static final String PASS = "root";
+    private final String PASS = "root";
 
-    public static Connection getConnection() {
+    public Connection getConnection() {
 
         try {
             Class.forName(DRIVER);
@@ -31,7 +31,7 @@ public class ConnectionFactory {
         return null;
     }
 
-    public static void closeConnection(Connection con) {
+    public void closeConnection(Connection con) {
 
         try {
             if (con != null) {
@@ -42,8 +42,9 @@ public class ConnectionFactory {
         }
     }
 
-    public static void closeConnection(PreparedStatement ps) {
+    public void closeConnection(Connection con, PreparedStatement ps) {
 
+        closeConnection(con);
         try {
             if (ps != null) {
                 ps.close();
@@ -53,9 +54,9 @@ public class ConnectionFactory {
         }
     }
 
-    public static void closeConnection(PreparedStatement ps, ResultSet rs) {
+    public void closeConnection(Connection con, PreparedStatement ps, ResultSet rs) {
 
-        closeConnection(ps);
+        closeConnection(con, ps);
         try {
             if (rs != null) {
                 rs.close();

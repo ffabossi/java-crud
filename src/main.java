@@ -8,14 +8,14 @@ import java.util.List;
  */
 public class main {
 
-    private static ContatoDAO contatoDAO = null;
+    private static ContatoDAOImpl contatoDAO = null;
 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
 
-        contatoDAO = new ContatoDAO();
+        contatoDAO = new ContatoDAOImpl();
 
         int opcao;
         
@@ -80,7 +80,6 @@ public class main {
     }
     
     private static void encerrar() {
-        contatoDAO.close();
         System.out.println("Encerrado.");
         System.exit(0);
     }
