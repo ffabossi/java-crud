@@ -1,4 +1,8 @@
+package iagocolodetti.javadbexemplo.view;
 
+import iagocolodetti.javadbexemplo.dao.ContatoDAOImpl;
+import iagocolodetti.javadbexemplo.dao.Contato;
+import iagocolodetti.javadbexemplo.exception.ContatoNaoExisteException;
 import java.sql.SQLException;
 import java.util.List;
 
@@ -6,7 +10,7 @@ import java.util.List;
  *
  * @author iagocolodetti
  */
-public class main {
+public class Main {
 
     private static ContatoDAOImpl contatoDAO = null;
 
@@ -143,7 +147,7 @@ public class main {
     }
 
     private static void buscarPorEmail() {
-        System.out.println("---------- [BUSCAR (E-EMAIL)] ----------");
+        System.out.println("---------- [BUSCAR (E-MAIL)] ----------");
         System.out.print("E-mail: ");
         try {
             List<Contato> contatos = contatoDAO.getContatosPorEmail(lerString());

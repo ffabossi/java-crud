@@ -1,4 +1,6 @@
+package iagocolodetti.javadbexemplo.dao;
 
+import iagocolodetti.javadbexemplo.exception.ContatoNaoExisteException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -18,7 +20,8 @@ public class ContatoDAOImpl implements ContatoDAO {
         cf = new ConnectionFactory();
     }
 
-    // <editor-fold defaultstate="collapsed" desc="Comando(s) de Criação/Escrita (CREATE)">
+    // <editor-fold defaultstate="expand" desc="Comando(s) de Criação/Escrita (CREATE)">
+    @Override
     public void add(Contato contato)
             throws SQLException {
 
@@ -40,7 +43,8 @@ public class ContatoDAOImpl implements ContatoDAO {
     }
     // </editor-fold>
 
-    // <editor-fold defaultstate="collapsed" desc="Comando(s) de Leitura/Busca (READ)">
+    // <editor-fold defaultstate="expand" desc="Comando(s) de Leitura/Busca (READ)">
+    @Override
     public Contato getContato(int id)
             throws ContatoNaoExisteException, SQLException {
 
@@ -71,6 +75,7 @@ public class ContatoDAOImpl implements ContatoDAO {
         return contato;
     }
 
+    @Override
     public List<Contato> getContatosPorNome(String nome)
             throws ContatoNaoExisteException, SQLException {
 
@@ -102,6 +107,7 @@ public class ContatoDAOImpl implements ContatoDAO {
         return contatos;
     }
 
+    @Override
     public List<Contato> getContatosPorTelefone(String telefone)
             throws ContatoNaoExisteException, SQLException {
 
@@ -132,7 +138,8 @@ public class ContatoDAOImpl implements ContatoDAO {
 
         return contatos;
     }
-
+    
+    @Override
     public List<Contato> getContatosPorEmail(String email)
             throws ContatoNaoExisteException, SQLException {
 
@@ -164,6 +171,7 @@ public class ContatoDAOImpl implements ContatoDAO {
         return contatos;
     }
 
+    @Override
     public List<Contato> getContatos()
             throws ContatoNaoExisteException, SQLException {
 
@@ -195,7 +203,8 @@ public class ContatoDAOImpl implements ContatoDAO {
     }
     // </editor-fold>
 
-    // <editor-fold defaultstate="collapsed" desc="Comando(s) de Atualização/Alteração (UPDATE)">
+    // <editor-fold defaultstate="expand" desc="Comando(s) de Atualização/Alteração (UPDATE)">
+    @Override
     public void update(Contato contato)
             throws ContatoNaoExisteException, SQLException {
 
@@ -220,7 +229,8 @@ public class ContatoDAOImpl implements ContatoDAO {
     }
     // </editor-fold>
 
-    // <editor-fold defaultstate="collapsed" desc="Comando(s) de Exclusão/Remoção (DELETE)">
+    // <editor-fold defaultstate="expand" desc="Comando(s) de Exclusão/Remoção (DELETE)">
+    @Override
     public void delete(int id)
             throws ContatoNaoExisteException, SQLException {
 

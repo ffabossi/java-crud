@@ -1,4 +1,6 @@
+package iagocolodetti.javadbexemplo.dao;
 
+import iagocolodetti.javadbexemplo.exception.ContatoNaoExisteException;
 import java.sql.SQLException;
 import java.util.List;
 

@@ -1,3 +1,4 @@
+package iagocolodetti.javadbexemplo.dao;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -21,7 +22,6 @@ public class ConnectionFactory {
     private final String PASS = "root";
 
     public Connection getConnection() {
-
         try {
             Class.forName(DRIVER);
             return DriverManager.getConnection(URL, USER, PASS);
@@ -32,7 +32,6 @@ public class ConnectionFactory {
     }
 
     public void closeConnection(Connection con) {
-
         try {
             if (con != null) {
                 con.close();
@@ -43,7 +42,6 @@ public class ConnectionFactory {
     }
 
     public void closeConnection(Connection con, PreparedStatement ps) {
-
         closeConnection(con);
         try {
             if (ps != null) {
@@ -55,7 +53,6 @@ public class ConnectionFactory {
     }
 
     public void closeConnection(Connection con, PreparedStatement ps, ResultSet rs) {
-
         closeConnection(con, ps);
         try {
             if (rs != null) {
