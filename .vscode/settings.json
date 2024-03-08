@@ -1,0 +1,11 @@
+{
+    "java.project.referencedLibraries": {
+        "include": [
+            "lib/**/*.jar",
+            "c:\\Users\\fabos\\Downloads\\mysql-connector-j-8.3.0\\mysql-connector-j-8.3.0.jar"
+        ],
+        "exclude": [
+            "lib/mysql-connector-java-5.1.23-bin.jar"
+        ]
+    }
+}
